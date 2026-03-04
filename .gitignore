@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.bun/
+bun.lock
+
+# Build outputs
+dist/
+client/dist/
+
+# Database
+*.sqlite
+*.sqlite-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary/Test
+test.json
+test_base64.json
+problem.png
+utputFormat
