@@ -1,16 +1,16 @@
 # Stage 1: Build the frontend
 FROM oven/bun:1.3.10-alpine AS build-frontend
 WORKDIR /app/frontend
-COPY frontend/package.json frontend/bun.lock ./
-RUN bun install --frozen-lockfile
+COPY frontend/package.json ./
+RUN bun install
 COPY frontend/ ./
 RUN bun run build
 
 # Stage 2: Prepare backend production dependencies
 FROM oven/bun:1.3.10-alpine AS backend-deps
 WORKDIR /app
-COPY backend/package.json backend/bun.lock ./
-RUN bun install --production --frozen-lockfile
+COPY backend/package.json ./
+RUN bun install --production
 
 # Stage 3: Final Runtime
 FROM oven/bun:1.3.10-alpine
